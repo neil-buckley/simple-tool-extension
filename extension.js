@@ -21,19 +21,11 @@ function activate(context) {
 
 function getProjectRootPath() {
   let workspace = vscode.workspace
-  let path = ''
-  if (!workspace.workspaceFolders) {
-    path = workspace.rootPath
-  } else {
-    let root = ''
-    if (workspace.workspaceFolders.length >= 1) {
-      root = workspace.workspaceFolders[0]
-    }
 
-    path = root.uri.fsPath
-  }
-
-  return path
+  //Note: Doesn't cater for multiple open workspaces, default to the first
+  return workspace.workspaceFolders
+    ? workspace.workspaceFolders[0].uri.fsPath
+    : workspace.rootPath
 }
 
 // taken from: https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/
