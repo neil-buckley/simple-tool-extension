@@ -1,6 +1,11 @@
 {
 	"name": "simple-tool",
 	"displayName": "simple-tool",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/neil-buckley/simple-tool-extension.git"
+	},
 	"description": "Navigate a simple application",
 	"version": "0.0.1",
 	"engines": {
