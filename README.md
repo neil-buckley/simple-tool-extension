@@ -4,6 +4,8 @@ Simple Tool: Navigator
 
 Adds Simple Tools Navigator
 
+To open use cmd+shift+p - Type `view Simple Tool` or Choose `View->Open View`
+
 ## Requirements
 
 Simple tools authored application
