@@ -37,19 +37,7 @@
 				"id": "simple-tool.simpleToolView",
 				"name": "Navigator"
 			}]
-		},
-		"menus": {
-			"view/title": [{
-				"command": "simple-tool.simpleTool",
-				"group": "navigation",
-				"when": "view == simple-tool.simpleToolView"
-			}]
-		},
-		"commands": [{
-			"command": "simple-tool.simpleTool",
-			"title": "Open Simple Tool"
-
-		}]
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
