@@ -1,6 +1,6 @@
 {
 	"name": "simple-tool",
-	"displayName": "simple-tool",
+	"displayName": "Simple Tools",
 	"private": true,
 	"repository": {
 		"type": "git",
