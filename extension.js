@@ -1,13 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode')
-const PORT = 3000 // vscode.workspace.getConfiguration('simple').get('port', 11011)
+const PORT = vscode.workspace.getConfiguration('simple').get('port', 11011)
 
 //TODO: run the viewer here directly from published package
 
-/**
- * @param {vscode.ExtensionContext} context
- */
 function activate(context) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   const provider = new SimpleTooleViewProvider(context.extensionUri)
@@ -20,7 +17,8 @@ function activate(context) {
   )
 }
 
-// taken from: https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/ and converted from TS
+// taken from: https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/
+// and converted from TS -  defo could be simplified
 var SimpleTooleViewProvider = /** @class */ (function () {
   function SimpleTooleViewProvider(_extensionUri) {
     this._extensionUri = _extensionUri
@@ -37,7 +35,7 @@ var SimpleTooleViewProvider = /** @class */ (function () {
     }
     webviewView.webview.html = this._getHtmlForWebview()
 
-    // TODO: open a file a file etc.
+    // TODO: open a file a file etc. we may need to relay from the iframe to the holding page and up
     // e.g. vscode.workspace.openTextDocument(Uri.file(path))
     // webviewView.webview.onDidReceiveMessage(data => {
     // 	console.log({data})
@@ -49,7 +47,7 @@ var SimpleTooleViewProvider = /** @class */ (function () {
             <html lang="en"">
             <head>
                 <meta charset="UTF-8">
-                <title>Preview</title>
+                <title>Simple/title>
                 <style>
                     html { width: 100%; height: 100%; min-height: 100%; display: flex; }
                     body { flex: 1; display: flex; }
