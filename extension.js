@@ -29,14 +29,18 @@ var SimpleTooleViewProvider = /** @class */ (function () {
   ) {
     this._view = webviewView
     webviewView.webview.options = {
-      // Allow scripts in the webview
       enableScripts: true,
       retainContextWhenHidden: true,
       localResourceRoots: [this._extensionUri],
-      // This maps localhost:3000 in the webview to a server port on the remote/external host.
       portMapping: [{ webviewPort: PORT, extensionHostPort: PORT }],
     }
     webviewView.webview.html = this._getHtmlForWebview()
+
+    // TODO: open a file a file etc.
+    // e.g. vscode.workspace.openTextDocument(Uri.file(path))
+    // webviewView.webview.onDidReceiveMessage(data => {
+    // 	console.log({data})
+    // });
   }
 
   SimpleTooleViewProvider.prototype._getHtmlForWebview = function () {
