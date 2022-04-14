@@ -19,8 +19,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onView:simple-tool.simpleToolView",
-		"onCommand:simple-tool.simpleTool"
+		"onView:simple-tool.simpleToolView"
 	],
 	"main": "./extension.js",
 	"contributes": {
