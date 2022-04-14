@@ -1,10 +1,9 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode')
-const PORT = 1111
+const PORT = vscode.workspace.getConfiguration('simple').get('port', 11011)
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+//TODO: run the viewer here directly from published package
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -32,6 +31,7 @@ var SimpleTooleViewProvider = /** @class */ (function () {
     webviewView.webview.options = {
       // Allow scripts in the webview
       enableScripts: true,
+      retainContextWhenHidden: true,
       localResourceRoots: [this._extensionUri],
       // This maps localhost:3000 in the webview to a server port on the remote/external host.
       portMapping: [{ webviewPort: PORT, extensionHostPort: PORT }],
@@ -48,7 +48,7 @@ var SimpleTooleViewProvider = /** @class */ (function () {
                 <style>
                     html { width: 100%; height: 100%; min-height: 100%; display: flex; }
                     body { flex: 1; display: flex; }
-                    iframe { flex: 1; border: none; background: white; }
+                    iframe { flex: 1; border: none; background: black; }
                 </style>
             </head>
             <body>

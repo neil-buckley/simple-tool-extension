@@ -1,13 +1,13 @@
 {
 	"name": "simple-tool",
-	"displayName": "Simple Tools",
+	"displayName": "Simple",
 	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/neil-buckley/simple-tool-extension.git"
 	},
 	"description": "Navigate a simple application",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.66.0"
 	},
@@ -24,10 +24,21 @@
 	],
 	"main": "./extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "Simple",
+			"properties": {
+				"simple.port": {
+					"type": "number",
+					"default": 11011,
+					"title": "Port",
+					"description": "Specifies the port to use for Simple"
+				}
+			}
+		},
 		"viewsContainers": {
 			"panel": [{
 				"id": "simple-tool",
-				"title": "Simple Tool",
+				"title": "Simple",
 				"icon": "resources/package-explorer.svg"
 			}]
 		},
@@ -35,7 +46,7 @@
 			"simple-tool": [{
 				"type": "webview",
 				"id": "simple-tool.simpleToolView",
-				"name": "Navigator"
+				"name": ""
 			}]
 		}
 	},
