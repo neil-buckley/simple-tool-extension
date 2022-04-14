@@ -15,6 +15,25 @@ function activate(context) {
       { webviewOptions: { retainContextWhenHidden: true, enableScripts: true } }
     )
   )
+
+  console.log(getProjectRootPath())
+}
+
+function getProjectRootPath() {
+  let workspace = vscode.workspace
+  let path = ''
+  if (!workspace.workspaceFolders) {
+    path = workspace.rootPath
+  } else {
+    let root = ''
+    if (workspace.workspaceFolders.length >= 1) {
+      root = workspace.workspaceFolders[0]
+    }
+
+    path = root.uri.fsPath
+  }
+
+  return path
 }
 
 // taken from: https://github.com/microsoft/vscode-extension-samples/blob/main/webview-view-sample/
